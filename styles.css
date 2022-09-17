@@ -1,0 +1,159 @@
+* {  /*Limpar os dados padrões do navegador*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+
+ul {
+    list-style: none;
+}
+
+body {
+    background-image: url(./assets/bg.jpg);
+    background-position: top center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #121214;
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    line-height: 160%;
+}
+
+header{
+    margin-top: 32px;
+    height: calc(120px + 32px); /* fazer que o css calcule*/
+}
+
+header div{
+    width: 120px;
+    margin: auto;
+    background-image:  linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    border-radius: 50%;
+    display: flex;
+    padding: 4px; /* server para preenchimento*/
+
+    transition: transform .3s; /* escala de tempo para aplicar a escala do hover */
+}
+
+header div:hover{/* div:hover significa que quando passar o mouse por cima, será aplicado propriedades especificadas */
+    transform: scale(1.1);
+}
+
+header img{
+    width: 100%; /* percentual com base no header div*/  
+    border-radius:50%;    
+}
+
+/*main * {
+    border: 1px solid red;
+}*/
+
+main {
+    max-width: 580px;
+    width: 90%;
+    margin: 32px auto; /* o primeiro valor é setado no topo e em baixo, o segundo valor nas laterais*/
+
+    display: grid;
+    gap: 24px;
+}
+
+section {
+    color: white;       
+    background-image:  linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 10px;
+}
+
+section div{
+    background-color: #2A2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+}
+
+section h2{    
+    letter-spacing: -0.47px;
+}
+
+section p{
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+
+
+section ul{
+    display: flex; /*  Faz um elemento ficar um do lado do outro */
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+section ul li{
+    transition: transform .3s;
+}
+
+section ul li:hover{
+    transform: scale(1.1);
+}
+
+.games-list img{
+    border-radius: 8px;
+    width: 90px;
+    height: 120px;
+}
+
+.studies-list img{
+    border-radius: 50%;
+    border: 2px solid #443E54;
+    width: 70px;
+    height: 70px;
+}
+
+/* animation*/
+
+header div{
+    animation: fromTop .7s; /* nome da animação e seu tempo*/
+    animation-delay: 2s backwards; /* depois do tempo para iniciar a animação*/
+}
+
+main section{
+    animation: fromBottom .7s backwards;
+}
+
+@keyframes fromTop{
+    from{
+        opacity: 0; /* sume da tela */
+        transform: translateY(-30px) /* inicia o elemento com -30px */
+    }
+
+    to{/* termina na posição*/
+        opacity: 1; /* demonstra na tela */
+        transform: translateY(0) /* posição de todo elemento é zero */
+    } 
+}
+
+main section:nth-child(1){ /* mandando o main pegar o section conforme ordem de criação */
+    animation-delay: 0;
+}
+
+main section:nth-child(2){
+    animation-delay: .3s;
+}
+
+main section:nth-child(3){
+    animation-delay: .6s;
+}
+
+@keyframes fromBottom {
+    from{
+        opacity: 0; /* sume da tela */
+        transform: translateY(30px) /* inicia o elemento com 30px para baixo */
+    }
+
+    to{/* termina na posição*/
+        opacity: 1; /* demonstra na tela */
+        transform: translateY(0) /* posição de todo elemento é zero */
+    } 
+}
